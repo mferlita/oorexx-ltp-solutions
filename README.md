@@ -11,24 +11,24 @@ style recommendations from IBM and have come up with the following.
 
 Matt's ooRexx Style Cheat Sheet:
 
-| Element                 | Format        | Examples                |
-|-------------------------|---------------|-------------------------|
-| Indentation             | 2-4 spaces    |                         |
-| Line Length Max         | 80 characters |                         |
-| Keyword Instructions    | UPPERCASE     | PARSE<br/>SAY           |
-| Built-in Functions      | UPPERCASE     | RANDOM()<br/>CHAROUT()  |
-| Directives              | UPPERCASE     | ::CLASS<br/>::INCLUDE   |
-| Methods and Routines    | camelCase     | append<br/>appendAll    | 
-| Variables               | snake_case    | otherGems<br/>myChapter | 
-| Classes                 | PascalCase    | .Array<br/>.DateTime    |
-| Boolean and Nil         | lowercase     | .nil<br/>.true          | 
-| Environment Directories | lowercase     | .environment<br/>.local | 
-| Runtime Values          | lowercase     | .line<br/>.rs           |
-| Runtime Collections     | locercase     | .methods<br/>.resources |
-| Standard Stream         | lowercase     | .stdin<br/>.stdout      |
-| Monitor Stream          | lowercase     | .input<br/>.output      |
-| Runtime Info            | PascalCase    | .RexxInfo               |
-| Runtime Context         | lowercase     | .context                |
+| Element                 | Format        | Examples                  |
+|-------------------------|---------------|---------------------------|
+| Indentation             | 2-4 spaces    |                           |
+| Line Length Max         | 80 characters |                           |
+| Keyword Instructions    | UPPERCASE     | PARSE<br/>SAY             |
+| Built-in Functions      | UPPERCASE     | RANDOM()<br/>CHAROUT()    |
+| Directives              | UPPERCASE     | ::CLASS<br/>::INCLUDE     |
+| Methods and Routines    | camelCase     | append<br/>appendAll      | 
+| Variables               | snake_case    | other_gems<br/>my_chapter | 
+| Classes                 | PascalCase    | .Array<br/>.DateTime      |
+| Boolean and Nil         | lowercase     | .nil<br/>.true            | 
+| Environment Directories | lowercase     | .environment<br/>.local   | 
+| Runtime Values          | lowercase     | .line<br/>.rs             |
+| Runtime Collections     | locercase     | .methods<br/>.resources   |
+| Standard Stream         | lowercase     | .stdin<br/>.stdout        |
+| Monitor Stream          | lowercase     | .input<br/>.output        |
+| Runtime Info            | PascalCase    | .RexxInfo                 |
+| Runtime Context         | lowercase     | .context                  |
 
 1. Write code that is clear, not clever.
 2. Different cases are used for identifiers. See table above.
