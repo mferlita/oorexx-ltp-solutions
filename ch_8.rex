@@ -1,25 +1,25 @@
 /* Chapter 8 */
 
 /* flavor tournament */
-match1 = "vanilla", "chocolate"
-match2 = "rhubarb", "pistachio"
-match3 = .Array~new -- this will hold the winners from 1 & 2
+match_1 = "vanilla", "chocolate"
+match_2 = "rhubarb", "pistachio"
+match_3 = .Array~new -- this will hold the winners from 1 & 2
 winner = .nil -- this will hold the final winner
 
 SAY "Welcome to ULTIMATE FLAVOR TOURNAMENT!"
 SAY
 SAY "MATCH 1: Which flavor is best?"
-SAY "1. " || match1[1]
-SAY "2. " || match1[2]
+SAY "1. " || match_1[1]
+SAY "2. " || match_1[2]
+
 LOOP WHILE .true
-  answer = LINEIN()~lower
+  answer = .stdin~lineIn()~lower
   IF (answer == "1" | answer == "2") THEN DO
     match_3[1] = match_1[answer]
     LEAVE
   END
-  ELSE DO
+  ELSE
     SAY "Please answer '1' or '2'."
-  END
 END
 
 SAY
@@ -27,14 +27,13 @@ SAY "MATCH 2: Which flavor is best?"
 SAY "1. " || match_2[1]
 SAY "2. " || match_2[2]
 LOOP WHILE .true
-  answer = LINEIN()~lower
+  answer = .stdin~lineIn()~lower
   IF (answer == "1" | answer == "2") THEN DO
     match_3[2] = match_2[answer]
     LEAVE
   END
-  ELSE DO
+  ELSE
     SAY "Please answer '1' or '2'."
-  END
 END
 
 SAY
@@ -43,151 +42,167 @@ SAY "Which flavor is best?"
 SAY "1. " || match_3[1]
 SAY "2. " || match_3[2]
 LOOP WHILE .true
-    answer = LINEIN()~lower
-    IF (answer == "1" | answer == "2") THEN DO
-        winner = match_3[answer]
-        LEAVE
-    END
-    ELSE DO
-        SAY "Please answer '1' or '2'."
-    END
+  answer = .stdin~lineIn()~lower
+  IF (answer == "1" | answer == "2") THEN DO
+    winner = match_3[answer]
+    LEAVE
+  END
+  ELSE
+    SAY "Please answer '1' or '2'."
 END
 
 SAY
 SAY "And the Ultimate Flavor Champion is:"
 SAY winner~upper"!!"
-
+SAY
 
 -- I had to puzzle this for a minute.
 -- So, ooRexx doesn't do methods quite like Ruby.
 -- Where Ruby is more implicit, ooRexx is more explicit.
--- Also, directives like ::CLASS and ::METHOD, go at the end of an ooRexx program.
-cow = .Cow~new
-
-cow~say_moo
-
+-- Also, directives like ::CLASS and ::METHOD, go at the end of an ooRexx
+-- program.
+.Cow~sayMoo
+SAY
 
 /* Method Arguments: What Goes In */
-cow = .Cow~new
-
-cow~say_moo(3)
+.Cow1~sayMoo1(3)
 SAY "oink-oink"
+SAY
 
 -- This last line should give an error
 -- because the argument is missing
---cow~say_moo
+--cow1~say_moo1
 
 
 /* Local Variables: What's Inside */
-multiply = .Multiply_this~new
-
-multiply~double_this(44)
-SAY num_times_2~string -- This will not work but will print num_times_2 as a string.
+.Multiply~doubleThis(44)
+SAY num_times_2~string -- This will not work. Prints num_times_2 as a string.
+SAY
 
 tough_var = "You can't even touch my variable!"
-test = .Test~new
-
-test~little_pest(tough_var)
+.Test~littlePest(tough_var)
 SAY tough_var
+SAY
 
 /* Return Variables: What Comes Out */
 return_val = SAY "This say returned:"
-SAY return_val -- it returns the value of return_val as a string
+SAY return_val -- it returns the whole value of return_val as a string
+SAY
 
-cow = .Cow~new
 
-SAY cow~say_moo1(3)
+SAY .Cow2~sayMoo2(3)
+SAY
 
-cow = .Cow~new
+speak = .Cow2~sayMoo2(3)
+SAY .MyStrings~capitalize(speak) || ", dude..."
+SAY speak || "."
+SAY
 
-x = cow~say_moo(3)
-SAY capitalize(x) || ", dude..."
-SAY x || "."
-
-SAY favorite_food("Rimmer")
-SAY favorite_food("Lister")
-SAY favorite_food("Cassandra")
-SAY favorite_drink("Kathryn")
-SAY favorite_drink("Q")
-SAY favorite_drink("Jean-Luc")
+SAY .FavFoodAndDrink~favoriteFood("Rimmer")
+SAY .FavFoodAndDrink~favoriteFood("Lister")
+SAY .FavFoodAndDrink~favoriteFood("Cassandra")
+SAY .FavFoodAndDrink~favoriteDrink("Kathryn")
+SAY .FavFoodAndDrink~favoriteDrink("Q")
+SAY .FavFoodAndDrink~favoriteDrink("Jean-Luc")
+SAY
 
 /* Flavor Tournament Redux */
---match_1 = ["vanilla", "chocolate"]
---match_2 = ["rhubarb", "pistachio"]
---match_3 = [] # this will hold the winners from 1 & 2
---winner = nil # this will hold the final winner
---
---def ask_for_winner(flavors)
---  SAY "0. "+flavors[0]
---  SAY "1. "+flavors[1]
---
---  WHILE true
---    answer = gets.chomp.downcase
---    IF (answer == "0" || answer == "1")
---      RETURN flavors[answer.to_i]
---    ELSE SAY "Please and '0' or '1'."
---    END
---  END
---END
---
---SAY "Welcome to ULTIMATE FLAVOR TOURNAMENT!"
---SAY
---SAY "MATCH 1: Which flavor is best?"
---match_3[0] = ask_for_winner(match_1)
---SAY
---SAY "MATCH 2: Which flavor is best?"
---match_3[1] = ask_for_winner(match_2)
---SAY
---SAY "CHAMPIONSHIP MATCH!"
---SAY "Which flavor is best?"
---winner = ask_for_winner(match_3)
---SAY
---SAY "And the Ultimate Flavor Championship is:"
---SAY winner.upcase+"!!"
+match_1 = "vanilla", "chocolate"
+match_2 = "rhubarb", "pistachio"
+match_3 = .Array~new -- this will hold the winners from 1 & 2
+winner = .nil -- this will hold the final winner
 
-/* Ch. 8 is continued in ch_8_more_flav_comp.rexx, ch_8_old_roman_num.rexx, and
-ch_8_new_roman_num.rexx */
+SAY "Welcome to ULTIMATE FLAVOR TOURNAMENT!"
+SAY
+SAY "MATCH 1: Which flavor is best?"
+match_3[1] = .FlavorTour~askForWinner(match_1)
+SAY
+SAY "MATCH 2: Which flavor is best?"
+match_3[2] = .FlavorTour~askForWinner(match_2)
+SAY
+SAY "CHAMPIONSHIP MATCH!"
+SAY "Which flavor is best?"
+winner = .FlavorTour~askForWinner(match_3)
+SAY
+SAY "And the Ultimate Flavor Champion is:"
+SAY winner~upper || "!!"
 
- /* Directives */
+/* Ch. 8 is continued in ch_8_more_flav_comp.rex, ch_8_old_roman_num.rex, and
+ch_8_new_roman_num.rex */
+
+/* Directives */
 ::CLASS Cow
-::METHOD say_moo CLASS
+::METHOD sayMoo CLASS
     SAY "mooooooo... "
 
+
 ::CLASS Cow1
-::METHOD say_moo1 CLASS
+::METHOD sayMoo1 CLASS
     USE ARG number_of_moos
     SAY "mooooooo... "~copies(number_of_moos)
 
+
+::CLASS Multiply
+::METHOD doubleThis CLASS
+    USE ARG num
+    num_times_2 = num * 2
+    SAY num "doubled is" num_times_2
+
+
+::CLASS Test
+::METHOD littlePest CLASS
+    USE ARG tough_var
+    tough_var = .nil
+    SAY "HAHA! I ruined your variable!"
+
+
 ::CLASS Cow2
-::METHOD say_moo2 CLASS
+::METHOD sayMoo2 CLASS
     USE ARG number_of_moos
     SAY "mooooooo... "~copies(number_of_moos)
     RETURN "yellow submarine" -- no implicit return value. Use explicit RETURN.
 
+
+::CLASS FavFoodAndDrink
+::METHOD FavoriteFood CLASS
+  USE ARG first_name
+  IF first_name == "Lister" THEN
+    RETURN "vindaloo"
+  IF first_name == "Rimmer" THEN
+    RETURN "mashed potatos"
+  RETURN "hard to say...maybe fried plaintains?"
+
+::METHOD FavoriteDrink CLASS
+  USE ARG first_name
+  IF first_name == "Jean-Luc" THEN
+    RETURN "tea, Earl Grey, hot"
+  ELSE IF first_name == "Kathryn" THEN
+    RETURN "coffe, black"
+  ELSE RETURN "perhaps...horchata?"
+
+
 ::CLASS MyStrings
 ::METHOD capitalize CLASS
     USE ARG stringy
-    IF stringy = "" THEN RETURN stringy
+    IF stringy = "" THEN
+      RETURN stringy
     RETURN stringy~left(1)~upper || stringy~substr(2)~lower
 
-::METHOD swapcase CLASS
+::METHOD swapCase CLASS
     USE ARG stringy
     uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     lowercase = "abcdefghijklmnopqrstuvwxyz"
     RETURN translate(stringy, lowercase || uppercase, uppercase || lowercase)
 
-::CLASS Test
-::METHOD little_pest CLASS
-    USE ARG tough_var
-    tough_var = .nil
-    SAY "HAHA! I ruined your variable!"
 
-::CLASS Multiply
-::METHOD double_this CLASS
-    USE ARG num
-    num_times_2 = num * 2
-    SAY num "doubled is" num_times_2
-
---::CLASS Cow
---::METHOD say_moo1
---  SAY "mooooooo... " -- this throws an error
+::CLASS FlavorTour
+::METHOD askForWinner CLASS
+  USE ARG flavors
+  SAY "1. " || flavors[1]
+  SAY "2. " || flavors[2]
+  LOOP WHILE .true
+    answer = .stdin~lineIn()
+    IF (answer == "1" | answer == "2") THEN
+      RETURN flavors[answer]
+    ELSE SAY "Please answer '1' or '2'."
+  END
