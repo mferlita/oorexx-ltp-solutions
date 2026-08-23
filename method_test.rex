@@ -1,6 +1,6 @@
 
-x = .Object~enhanced(.methods)
-x~double_this(44)
+floating_method = .Object~enhanced(.methods)
+floating_method~double_this(44)
 
 .Multiply_this~double_this1(44)
 
