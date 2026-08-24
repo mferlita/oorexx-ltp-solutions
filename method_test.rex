@@ -1,8 +1,10 @@
 
+-- Floating Method
 floating_method = .Object~enhanced(.methods)
 floating_method~double_this(44)
 
-.Multiply_this~double_this1(44)
+-- Class Method
+.MultiplyThis~double_this1(44)
 
 /* Directives */
 ::METHOD double_this -- floating method
@@ -11,7 +13,7 @@ floating_method~double_this(44)
     SAY num "doubled is" num_times_2
 
 
-::CLASS Multiply_this
+::CLASS MultiplyThis
 ::METHOD double_this1 CLASS
     USE ARG num
     num_times_2 = num * 2
