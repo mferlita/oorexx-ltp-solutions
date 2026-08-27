@@ -47,5 +47,5 @@ Matt's ooRexx Style Cheat Sheet:
 15. Prefer object methods over legacy functions.
 16. Avoid unnecessary abbreviation.
 17. Use clear program headers that explain what your program does.
-18. In the Directives section, use comment lines to separate ::ROUTINE and  
+18. In the Directives section, use comment lines to separate ::ROUTINE  
     and ::CLASS blocks.
