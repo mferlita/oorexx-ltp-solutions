@@ -38,13 +38,14 @@ Matt's ooRexx Style Cheat Sheet:
 6. Prefer 80 character line length.
 7. 1 clause per line.
 8. Comment generously and explain your intent.
-9. Prefer block comments over inline comments.
-10. Leave whitespace around operators (a = 1 + 1).
-11. Keep routines and methods small.
-12. If you call code only once, don't make it a routine or a method.
-13. Avoid deeply nested if statements and keep them simple.
-14. Align related code.
-15. Separate logical sections with blank lines.
-16. Prefer object methods over legacy functions.
-17. Avoid unnecessary abbreviation.
-18. Use clear program headers that explain what your program does.
+9. Leave whitespace around operators (a = 1 + 1).
+10. Keep routines and methods small.
+11. If you call code only once, don't make it a routine or a method.
+12. Avoid deeply nested if statements and keep them simple.
+13. Align related code.
+14. Separate logical sections with blank lines.
+15. Prefer object methods over legacy functions.
+16. Avoid unnecessary abbreviation.
+17. Use clear program headers that explain what your program does.
+18. In the Directives section, use comment lines to separate ::ROUTINE and  
+    and ::CLASS blocks.

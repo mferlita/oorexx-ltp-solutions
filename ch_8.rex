@@ -131,38 +131,35 @@ SAY winner~upper || "!!"
 ch_8_new_roman_num.rex */
 
 /* Directives */
+::REQUIRES "matt_utilities.rex"
+
 ::CLASS Cow
 ::METHOD sayMoo CLASS
     SAY "mooooooo... "
-
-
+--------------------------------------------------------------------------------
 ::CLASS Cow1
 ::METHOD sayMoo1 CLASS
     USE ARG number_of_moos
     SAY "mooooooo... "~copies(number_of_moos)
-
-
+--------------------------------------------------------------------------------
 ::CLASS Multiply
 ::METHOD doubleThis CLASS
     USE ARG num
     num_times_2 = num * 2
     SAY num "doubled is" num_times_2
-
-
+--------------------------------------------------------------------------------
 ::CLASS Test
 ::METHOD littlePest CLASS
     USE ARG tough_var
     tough_var = .nil
     SAY "HAHA! I ruined your variable!"
-
-
+--------------------------------------------------------------------------------
 ::CLASS Cow2
 ::METHOD sayMoo2 CLASS
     USE ARG number_of_moos
     SAY "mooooooo... "~copies(number_of_moos)
     RETURN "yellow submarine" -- no implicit return value. Use explicit RETURN.
-
-
+--------------------------------------------------------------------------------
 ::CLASS FavFoodAndDrink
 ::METHOD FavoriteFood CLASS
   USE ARG first_name
@@ -179,22 +176,7 @@ ch_8_new_roman_num.rex */
   ELSE IF first_name == "Kathryn" THEN
     RETURN "coffe, black"
   ELSE RETURN "perhaps...horchata?"
-
-
-::CLASS MyStrings
-::METHOD capitalize CLASS
-    USE ARG stringy
-    IF stringy = "" THEN
-      RETURN stringy
-    RETURN stringy~left(1)~upper || stringy~substr(2)~lower
-
-::METHOD swapCase CLASS
-    USE ARG stringy
-    uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    lowercase = "abcdefghijklmnopqrstuvwxyz"
-    RETURN translate(stringy, lowercase || uppercase, uppercase || lowercase)
-
-
+--------------------------------------------------------------------------------
 ::CLASS FlavorTour
 ::METHOD askForWinner CLASS
   USE ARG flavors

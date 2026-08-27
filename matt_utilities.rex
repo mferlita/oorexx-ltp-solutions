@@ -5,7 +5,7 @@
     IF stringy = "" THEN
       RETURN stringy
     RETURN stringy~left(1)~upper || stringy~substr(2)~lower
-
+--------------------------------------------------------------------------------
 ::METHOD swapCase CLASS
     USE ARG stringy
     uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"

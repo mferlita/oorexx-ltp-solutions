@@ -167,4 +167,5 @@ END
 /* Ch. 6 is continued in ch_6_99_bottles.rb, ch_6_deaf_grandma.rb
  and ch_6_leap_years.rb */
 
+/* Directives */
 ::REQUIRES "matt_utilities.rex"

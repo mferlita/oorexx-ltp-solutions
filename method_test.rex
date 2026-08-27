@@ -11,8 +11,7 @@ floating_method~double_this(44)
     USE ARG num
     num_times_2 = num * 2
     SAY num "doubled is" num_times_2
-
-
+--------------------------------------------------------------------------------
 ::CLASS MultiplyThis
 ::METHOD double_this1 CLASS
     USE ARG num

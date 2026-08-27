@@ -1,6 +1,6 @@
 /* Chapter 5 */
 
---Fancy String Methods
+/* Fancy String Methods */
 var1 = "stop"
 var2 = "deliver repaid desserts"
 var3 = "....TCELES B HSUP - A magic spell?"
@@ -34,7 +34,7 @@ SAY letters~lower "-- lower"
 -- puts letters.swapcase
 -- puts letters.capitalize
 -- puts "a".capitalize
-SAY .MyStrings~swapcase(letters) "-- swapcase"
+SAY .MyStrings~swapCase(letters) "-- swapcase"
 SAY .MyStrings~capitalize(letters) "-- capitalize"
 SAY .MyStrings~capitalize("a") "-- capitalize"
 SAY letters
@@ -59,7 +59,7 @@ SAY ""
 
 -- continued in ch_5_angry_boss.rex and ch_5_table_of_contents.rex
 
--- More Arithmetic
+/* More Arithmetic */
 SAY 5**2 --exponentiation, everything to the right of ** must be whole number
 SAY RxCalcPower(5,0.5) -- Same as Ruby's exponentiation. Needs RxMath library.
 SAY 7%3 --integer division
@@ -105,7 +105,7 @@ SAY RANDOM(100)
 SAY ""
 
 
--- The Math Object
+/* The Math Object */
 -- ooRexx has no math object.
 -- In order to use more sophisticated math, use ooRexx's RxMath library.
 SAY RxCalcPi()
@@ -115,17 +115,6 @@ SAY RxCalcTan(RxCalcPi()/4,16,r)
 SAY RxCalcLog(RxCalcExp(1)**2)
 SAY (1 + RxCalcSqrt(5)) / 2 -- golden ratio
 
--- Directives
+/* Directives */
 ::REQUIRES 'rxmath' LIBRARY
-
-::CLASS MyStrings
-::METHOD capitalize CLASS
-    USE ARG stringy
-    IF stringy = "" THEN RETURN stringy
-    RETURN stringy~left(1)~upper || stringy~substr(2)~lower
-
-::METHOD swapcase CLASS
-    USE ARG stringy
-    uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    lowercase = "abcdefghijklmnopqrstuvwxyz"
-    RETURN translate(stringy, lowercase || uppercase, uppercase || lowercase)
+::REQUIRES "matt_utilities.rex"

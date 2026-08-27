@@ -10,6 +10,8 @@ SAY "Hello," first_name middle_name last_name", It's nice to meet you."
 
 -- You could also do this
 
-/*SAY "Hello, what is your full name?"
+SAY "Hello, what is your full name?"
 PARSE PULL first_name middle_name last_name
-SAY "Hello," first_name middle_name last_name", It's nice to meet you."*/
+SAY "Hello," first_name middle_name last_name", It's nice to meet you."
+
+--The PULL keyword by itself uppercases letters.
