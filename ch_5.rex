@@ -62,15 +62,15 @@ SAY ""
 /* More Arithmetic */
 SAY 5**2 --exponentiation, everything to the right of ** must be whole number
 SAY RxCalcPower(5,0.5) -- Same as Ruby's exponentiation. Needs RxMath library.
-SAY 7%3 --integer division
+SAY 7 % 3 --integer division
 SAY 7~modulo(3) --modulus method gives remainder
-SAY 7//3 --gives remainder but not modulus
+SAY 7 // 3 --gives remainder but not modulus
 SAY 365~modulo(7)
 SAY ""
 
 -- absolute value
-SAY (5-2)~abs
-SAY (2-5)~abs
+SAY (5 - 2)~abs
+SAY (2 - 5)~abs
 SAY ""
 
 -- random numbers

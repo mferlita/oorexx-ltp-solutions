@@ -127,6 +127,8 @@ IF user_name == "Chris" | user_name == "Katy" THEN
 SAY
 
 /* Other Logical Operators */
+-- Ruby will print either true or false
+-- However, ooRexx will return 1 for true or 0 for false
 i_am_chris = .true
 i_am_purple = .false
 i_like_beer = .true
@@ -164,8 +166,8 @@ DO WHILE .true
     LEAVE
 END
 
-/* Ch. 6 is continued in ch_6_99_bottles.rb, ch_6_deaf_grandma.rb
- and ch_6_leap_years.rb */
+/* Ch. 6 is continued in ch_6_99_bottles.rex, ch_6_deaf_grandma.rex
+ and ch_6_leap_years.rex */
 
 /* Directives */
 ::REQUIRES "matt_utilities.rex"
