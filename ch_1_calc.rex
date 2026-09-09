@@ -41,9 +41,9 @@ SAY "There are" decade_in_minutes "minutes in a decade"
 SAY
 
 SAY "How many seconds old are you?"~upper
-SAY "I, Matt Ferlita, am" me_in_seconds~format(,,0) "seconds old, or" -
+SAY "I, Matt Ferlita, am" me_in_seconds~trunc "seconds old, or" -
     me_in_years "years old."
 SAY
 
 SAY "If I am 1406 million seconds old, how old am I?"~upper
-SAY "You are" mr_pine_age~format(,1) "years old, Mr. Pine."
+SAY "You are" mr_pine_age~trunc "years old, Mr. Pine."

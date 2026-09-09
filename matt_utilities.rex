@@ -11,3 +11,5 @@
     uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     lowercase = "abcdefghijklmnopqrstuvwxyz"
     RETURN translate(stringy, lowercase || uppercase, uppercase || lowercase)
+
+    optio
