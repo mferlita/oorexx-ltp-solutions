@@ -45,11 +45,12 @@ SAY "Hello, and welcome to seventh grade English."
 SAY "My name is Mrs. Gabbard. And your name is...?"
 user_name = .stdin~lineIn()
 
-IF user_name == .MyStrings~capitalize(user_name) THEN
+IF user_name == .MattUtil~capitalize(user_name) THEN
   SAY "Please take a seat," user_name || "."
 ELSE DO
-  SAY user_name || "? You mean" .MyStrings~capitalize(user_name) || ", right?"
+  SAY user_name || "? You mean" .MattUtil~capitalize(user_name) || ", right?"
   SAY "Don't you even know how to spell your name??"
+
   user_reply = .stdin~lineIn()
 
   IF user_reply~lower == "yes" THEN
@@ -170,4 +171,4 @@ END
  and ch_6_leap_years.rex */
 
 /* Directives */
-::REQUIRES "matt_utilities.rex"
+::REQUIRES "MattUtil.rex"

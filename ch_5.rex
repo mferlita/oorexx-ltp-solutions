@@ -34,9 +34,9 @@ SAY letters~lower "-- lower"
 -- puts letters.swapcase
 -- puts letters.capitalize
 -- puts "a".capitalize
-SAY .MyStrings~swapCase(letters) "-- swapcase"
-SAY .MyStrings~capitalize(letters) "-- capitalize"
-SAY .MyStrings~capitalize("a") "-- capitalize"
+SAY .MattUtil~swapCase(letters) "-- swapcase"
+SAY .MattUtil~capitalize(letters) "-- capitalize"
+SAY .MattUtil~capitalize("a") "-- capitalize"
 SAY letters
 SAY ""
 
@@ -117,4 +117,4 @@ SAY (1 + RxCalcSqrt(5)) / 2 -- golden ratio
 
 /* Directives */
 ::REQUIRES 'rxmath' LIBRARY
-::REQUIRES "matt_utilities.rex"
+::REQUIRES "MattUtil.rex"

@@ -21,13 +21,16 @@ SAY winner~upper || "!!"
 
 /* Directives */
 ::CLASS FlavorTour
-::METHOD askForWinner CLASS
-  USE ARG flavors
-  SAY "1. " || flavors[1]
-  SAY "2. " || flavors[2]
-  LOOP WHILE .true
-    answer = .stdin~lineIn()
-    IF (answer == "1" | answer == "2") THEN
-      RETURN flavors[answer]
-    ELSE SAY "Please answer '1' or '2'."
-  END
+  ::METHOD askForWinner CLASS
+    USE ARG flavors
+
+    SAY "1. " || flavors[1]
+    SAY "2. " || flavors[2]
+
+    LOOP FOREVER
+      answer = .stdin~lineIn()
+
+      IF (answer == "1" | answer == "2") THEN
+        RETURN flavors[answer]
+      ELSE SAY "Please answer '1' or '2'."
+    END

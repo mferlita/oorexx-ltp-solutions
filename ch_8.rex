@@ -131,60 +131,81 @@ SAY winner~upper || "!!"
 ch_8_new_roman_num.rex */
 
 /* Directives */
-::REQUIRES "matt_utilities.rex"
-
+::REQUIRES "MattUtil.rex"
+--------------------------------------------------------------------------------
 ::CLASS Cow
-::METHOD sayMoo CLASS
+
+  ::METHOD sayMoo CLASS
     SAY "mooooooo... "
 --------------------------------------------------------------------------------
 ::CLASS Cow1
-::METHOD sayMoo1 CLASS
+
+  ::METHOD sayMoo1 CLASS
     USE ARG number_of_moos
+
     SAY "mooooooo... "~copies(number_of_moos)
 --------------------------------------------------------------------------------
 ::CLASS Multiply
-::METHOD doubleThis CLASS
+
+  ::METHOD doubleThis CLASS
     USE ARG num
+
     num_times_2 = num * 2
+
     SAY num "doubled is" num_times_2
 --------------------------------------------------------------------------------
 ::CLASS Test
-::METHOD littlePest CLASS
+
+  ::METHOD littlePest CLASS
     USE ARG tough_var
+
     tough_var = .nil
+
     SAY "HAHA! I ruined your variable!"
 --------------------------------------------------------------------------------
 ::CLASS Cow2
-::METHOD sayMoo2 CLASS
+
+  ::METHOD sayMoo2 CLASS
     USE ARG number_of_moos
+
     SAY "mooooooo... "~copies(number_of_moos)
+
     RETURN "yellow submarine" -- no implicit return value. Use explicit RETURN.
 --------------------------------------------------------------------------------
 ::CLASS FavFoodAndDrink
-::METHOD FavoriteFood CLASS
-  USE ARG first_name
-  IF first_name == "Lister" THEN
-    RETURN "vindaloo"
-  IF first_name == "Rimmer" THEN
-    RETURN "mashed potatos"
-  RETURN "hard to say...maybe fried plaintains?"
 
-::METHOD FavoriteDrink CLASS
-  USE ARG first_name
-  IF first_name == "Jean-Luc" THEN
-    RETURN "tea, Earl Grey, hot"
-  ELSE IF first_name == "Kathryn" THEN
-    RETURN "coffe, black"
-  ELSE RETURN "perhaps...horchata?"
+  ::METHOD FavoriteFood CLASS
+    USE ARG first_name
+
+    IF first_name == "Lister" THEN
+      RETURN "vindaloo"
+
+    IF first_name == "Rimmer" THEN
+      RETURN "mashed potatos"
+
+    RETURN "hard to say...maybe fried plaintains?"
+----------
+  ::METHOD FavoriteDrink CLASS
+    USE ARG first_name
+
+    IF first_name == "Jean-Luc" THEN
+      RETURN "tea, Earl Grey, hot"
+    ELSE IF first_name == "Kathryn" THEN
+      RETURN "coffe, black"
+    ELSE RETURN "perhaps...horchata?"
 --------------------------------------------------------------------------------
 ::CLASS FlavorTour
-::METHOD askForWinner CLASS
-  USE ARG flavors
-  SAY "1. " || flavors[1]
-  SAY "2. " || flavors[2]
-  LOOP WHILE .true
-    answer = .stdin~lineIn()
-    IF (answer == "1" | answer == "2") THEN
-      RETURN flavors[answer]
-    ELSE SAY "Please answer '1' or '2'."
-  END
+
+  ::METHOD askForWinner CLASS
+    USE ARG flavors
+
+    SAY "1. " || flavors[1]
+    SAY "2. " || flavors[2]
+
+    LOOP FOREVER
+      answer = .stdin~lineIn()
+
+      IF (answer == "1" | answer == "2") THEN
+        RETURN flavors[answer]
+      ELSE SAY "Please answer '1' or '2'."
+    END

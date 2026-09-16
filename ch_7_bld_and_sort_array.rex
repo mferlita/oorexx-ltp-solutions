@@ -2,7 +2,7 @@
 SAY "Give me some words and I'll sort them."
 words = .Array~new
 
-LOOP WHILE .true -- you could also just say loop forever
+LOOP FOREVER
   guest = .stdin~lineIn()
   IF guest~length = 0 THEN LEAVE
   words~append(guest)
