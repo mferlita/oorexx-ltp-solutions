@@ -6,7 +6,7 @@
 .Array~of("Hello", "Goodbye")
 
 flavor = "vanilla" -- Not an array, of course...
-.Array~of(89.9, flavor, (true, false)) -- ...but this is
+.Array~of(89.9, flavor, (.true, .false)) -- ...but this is
 
 gems = .Array~of("Pearl", "Garnet", "Amethyst")
 
