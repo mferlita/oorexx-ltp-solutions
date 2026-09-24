@@ -1,4 +1,7 @@
 
+/* This method when passed a number between 1 and 3,999 converts it to roman
+ numerals. */
+
 SAY .Roman~newNum(1984)
 SAY
 SAY .Roman~newNum(984)
