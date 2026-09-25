@@ -1,3 +1,4 @@
+#!/usr/bin/env rexx
 
 /* This method when passed a number between 1 and 3,999 converts it to roman
  numerals. */
@@ -16,6 +17,7 @@ SAY .Roman~newNum(1992)
 SAY
 SAY .Roman~newNum(2004)
 SAY
+
 -- The following are from Wikipedia, retrieved 9/22/26.
 SAY .Roman~newNum(39) -- Should be: XXXIX
 SAY
@@ -47,7 +49,8 @@ SAY .Roman~newNum(3999) -- MMMCMXCIX
 ::CLASS Roman
   ::METHOD newNum CLASS
     USE ARG num
-    IF num <= 0 | num >= 4_000 THEN
+
+    IF (num <= 0) | (num >= 4000) THEN
       RAISE USER error DESCRIPTION "Must use positive integer less than 4,000"
 
     chopped_num = num
