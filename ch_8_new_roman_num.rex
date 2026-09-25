@@ -44,6 +44,10 @@ SAY
 SAY .Roman~newNum(2026) -- MMXXVI
 SAY
 SAY .Roman~newNum(3999) -- MMMCMXCIX
+SAY
+SAY .Roman~newNum(0)
+SAY
+SAY .Roman~newNum(4001)
 
 /* Directives */
 ::CLASS Roman
@@ -53,11 +57,8 @@ SAY .Roman~newNum(3999) -- MMMCMXCIX
     IF (num <= 0) | (num >= 4000) THEN
       RAISE USER error DESCRIPTION "Must use positive integer less than 4,000"
 
-    chopped_num = num
-
-    LOOP WHILE chopped_num~length < 4 -- make sure the passed number is always 4 digits
-      chopped_num = 0 || chopped_num -- add zeros to the beginning
-    END
+--  make sure passed number is 4 digits and add zeros to the beginning
+    chopped_num = num~right(4,0)
 
     roman = "M"~copies(chopped_num~subChar(1))
 
@@ -66,8 +67,8 @@ SAY .Roman~newNum(3999) -- MMMCMXCIX
     ELSE IF chopped_num~subChar(2) == 4 THEN
       roman = roman || "CD" -- 500(D) - 100(C) = 400
     ELSE DO
-      roman = roman || "D"~copies(chopped_num~subChar(2) % 5) -- repeat "D" by the correct amount
-      roman = roman || "C"~copies(chopped_num~subChar(2)~modulo(5)) -- repeat "C" by the correct amount
+      roman = roman || "D"~copies(chopped_num~subChar(2) % 5) -- use integer to repeat "D" by the correct amount
+      roman = roman || "C"~copies(chopped_num~subChar(2)~modulo(5)) -- use remainder to repeat "C" by the correct amount
     END
 
     IF chopped_num~subChar(3) == 9 THEN
