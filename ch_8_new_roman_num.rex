@@ -49,10 +49,6 @@ SAY
 --SAY
 SAY .Roman~newNum(4001)
 
-MrHandler:
-  SAY CONDITION('D')
-  EXIT
-
 /* Directives */
 ::CLASS Roman
   ::METHOD newNum CLASS
