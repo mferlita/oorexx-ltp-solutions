@@ -44,10 +44,10 @@ SAY
 SAY .Roman~newNum(2026) -- MMXXVI
 SAY
 SAY .Roman~newNum(3999) -- MMMCMXCIX
-SAY
+--SAY
 --SAY .Roman~newNum(0)
 --SAY
-SAY .Roman~newNum(4001)
+--SAY .Roman~newNum(4001)
 
 /* Directives */
 ::CLASS Roman
