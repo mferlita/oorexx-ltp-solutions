@@ -45,9 +45,13 @@ SAY .Roman~newNum(2026) -- MMXXVI
 SAY
 SAY .Roman~newNum(3999) -- MMMCMXCIX
 SAY
-SAY .Roman~newNum(0)
-SAY
+--SAY .Roman~newNum(0)
+--SAY
 SAY .Roman~newNum(4001)
+
+MrHandler:
+  SAY CONDITION('D')
+  EXIT
 
 /* Directives */
 ::CLASS Roman
@@ -55,7 +59,7 @@ SAY .Roman~newNum(4001)
     USE ARG num
 
     IF (num <= 0) | (num >= 4000) THEN
-      RAISE USER error DESCRIPTION "Must use positive integer less than 4,000"
+      RAISE SYNTAX 88.900 ARRAY ('Must use a positive integer less than 4,000')
 
 --  make sure passed number is 4 digits and add zeros to the beginning
     chopped_num = num~right(4,0)
