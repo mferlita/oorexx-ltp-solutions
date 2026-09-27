@@ -68,8 +68,10 @@ SAY .Roman~newNum(3999) -- MMMCMXCIX
     ELSE IF digit4~subChar(2) == 4 THEN
       roman = roman || "CD" -- 500(D) - 100(C) = 400
     ELSE DO
-      roman = roman || "D"~copies(digit4~subChar(2) % 5) -- use integer to repeat "D" by the correct amount
-      roman = roman || "C"~copies(digit4~subChar(2)~modulo(5)) -- use remainder to repeat "C" by the correct amount
+      -- use integer to repeat "D" by the correct amount
+      roman = roman || "D"~copies(digit4~subChar(2) % 5)
+      -- use remainder to repeat "C" by the correct amount
+      roman = roman || "C"~copies(digit4~subChar(2)~modulo(5))
     END
 
     IF digit4~subChar(3) == 9 THEN
