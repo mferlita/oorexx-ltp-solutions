@@ -10,6 +10,6 @@ ch3pg = 'page 9'
 
 SAY title~center(line_width)
 SAY
-SAY ch1~left(line_width/2) || ch1pg~right(line_width/2)
-SAY ch2~left(line_width/2) || ch2pg~right(line_width/2)
-SAY ch3~left(line_width/2) || ch3pg~right(line_width/2)
+SAY ch1~left(line_width / 2) || ch1pg~right(line_width / 2)
+SAY ch2~left(line_width / 2) || ch2pg~right(line_width / 2)
+SAY ch3~left(line_width / 2) || ch3pg~right(line_width / 2)

@@ -16,8 +16,8 @@ LOOP
       LEAVE
     END
   END
-    ELSE DO
-      bye_count = 0
-      SAY "NO, NOT SINCE" RANDOM(1930,1950)"!"
-    END
+  ELSE DO
+    bye_count = 0
+    SAY "NO, NOT SINCE" RANDOM(1930,1950)"!"
+  END
 END

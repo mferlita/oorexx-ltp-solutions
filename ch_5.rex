@@ -54,7 +54,7 @@ str = "==> text <=="
 SAY str~left(line_width)
 SAY str~center(line_width)
 SAY str~right(line_width)
-SAY str~left(line_width/2) || str~right(line_width/2)
+SAY str~left(line_width / 2) || str~right(line_width / 2)
 SAY ""
 
 -- continued in ch_5_angry_boss.rex and ch_5_table_of_contents.rex
