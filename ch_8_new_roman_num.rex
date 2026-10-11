@@ -64,32 +64,32 @@ SAY .Roman~newNum(3999) -- MMMCMXCIX
     roman = "M"~copies(digit4~subChar(1))
 
     IF digit4~subChar(2) == 9 THEN
-      roman = roman || "CM" -- 1000(M) - 100(C) = 900
+      roman ||= "CM" -- 1000(M) - 100(C) = 900
     ELSE IF digit4~subChar(2) == 4 THEN
-      roman = roman || "CD" -- 500(D) - 100(C) = 400
+      roman ||= "CD" -- 500(D) - 100(C) = 400
     ELSE DO
       -- use integer to repeat "D" by the correct amount
-      roman = roman || "D"~copies(digit4~subChar(2) % 5)
+      roman ||= "D"~copies(digit4~subChar(2) % 5)
       -- use remainder to repeat "C" by the correct amount
-      roman = roman || "C"~copies(digit4~subChar(2)~modulo(5))
+      roman ||= "C"~copies(digit4~subChar(2)~modulo(5))
     END
 
     IF digit4~subChar(3) == 9 THEN
-      roman = roman || "XC" -- 100(C) - 10(X) = 90
+      roman ||= "XC" -- 100(C) - 10(X) = 90
     ELSE IF digit4~subChar(3) == 4 THEN
-      roman = roman || "XL" -- 50(L) - 10(X) = 40
+      roman ||= "XL" -- 50(L) - 10(X) = 40
     ELSE DO
-      roman = roman || "L"~copies(digit4~subChar(3) % 5)
-      roman = roman || "X"~copies(digit4~subChar(3)~modulo(5))
+      roman ||= "L"~copies(digit4~subChar(3) % 5)
+      roman ||= "X"~copies(digit4~subChar(3)~modulo(5))
     END
 
     IF digit4~subChar(4) == 9 THEN
-      roman = roman || "IX" -- 10(X) - 1(I) = 9
+      roman ||= "IX" -- 10(X) - 1(I) = 9
     ELSE IF digit4~subChar(4) == 4 THEN
-      roman = roman || "IV" -- 5(V) - 1(I) = 4
+      roman ||= "IV" -- 5(V) - 1(I) = 4
     ELSE DO
-      roman = roman || "V"~copies(digit4~subChar(4) % 5)
-      roman = roman || "I"~copies(digit4~subChar(4)~modulo(5))
+      roman ||= "V"~copies(digit4~subChar(4) % 5)
+      roman ||= "I"~copies(digit4~subChar(4)~modulo(5))
     END
 
     SAY num

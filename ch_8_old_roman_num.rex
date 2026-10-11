@@ -60,12 +60,12 @@ SAY .Roman~oldNum(3999)
     digit4 = num~right(4,0)
 
     roman = "M"~copies(digit4~subChar(1))
-    roman = roman || "D"~copies(digit4~subChar(2) % 5)
-    roman = roman || "C"~copies(digit4~subChar(2)~modulo(5))
-    roman = roman || "L"~copies(digit4~subChar(3) % 5)
-    roman = roman || "X"~copies(digit4~subChar(3)~modulo(5))
-    roman = roman || "V"~copies(digit4~subChar(4) % 5)
-    roman = roman || "I"~copies(digit4~subChar(4)~modulo(5))
+    roman ||= "D"~copies(digit4~subChar(2) % 5)
+    roman ||= "C"~copies(digit4~subChar(2)~modulo(5))
+    roman ||= "L"~copies(digit4~subChar(3) % 5)
+    roman ||= "X"~copies(digit4~subChar(3)~modulo(5))
+    roman ||= "V"~copies(digit4~subChar(4) % 5)
+    roman ||= "I"~copies(digit4~subChar(4)~modulo(5))
 
     SAY num
     RETURN roman

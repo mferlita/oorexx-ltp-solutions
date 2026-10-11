@@ -21,6 +21,6 @@ LOOP chap OVER chapters
   page = chap[2]
   beginning = "Chapter" chap_num":" name
   ending = "page" page
-  chap_num = chap_num + 1
+  chap_num += 1
   SAY beginning~left(line_width / 2) || ending~right(line_width / 2)
 END

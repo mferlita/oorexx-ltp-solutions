@@ -10,7 +10,7 @@ LOOP
     SAY 'HUH?! SPEAK UP, DEAR!'
   END
   ELSE IF grandchild == 'bye'~upper THEN DO
-    bye_count = bye_count + 1
+    bye_count += 1
     IF bye_count == 3 THEN DO
       SAY "GOODBYE, DEARY!"
       LEAVE

@@ -1,26 +1,42 @@
+#!/usr/bin/env rexx
 
-match_1 = "vanilla", "chocolate"
-match_2 = "rhubarb", "pistachio"
-match_3 = .Array~new -- this will hold the winners from 1 & 2
-winner = .nil -- this will hold the final winner
+/*
+1. Put flavors into an array so you can add and subtract flavors easily and
+   dynamically create matches and rounds
+2. Slice the flavors up into matches (two flavors each match)
+3. prompt user which flavor they like better
+4. play a match and throw the result into an array for next round
+5. play the remaining matches/rounds until only one flavor is left
+6. announce winner
+*/
+
+flavors = "vanilla", -
+          "chocolate", -
+          "rhubarb", -
+          "pistachio", -
+          "moose tracks", -
+          "raspberry", -
+          "chocolate mint"
 
 SAY "Welcome to ULTIMATE FLAVOR TOURNAMENT!"
 SAY
 SAY "MATCH 1: Which flavor is best?"
-match_3[1] = .FlavorTour~askForWinner(match_1)
+match_3[1] = .FlavorTourn~askForWinner(match_1)
 SAY
 SAY "MATCH 2: Which flavor is best?"
-match_3[2] = .FlavorTour~askForWinner(match_2)
+match_3[2] = .FlavorTourn~askForWinner(match_2)
 SAY
 SAY "CHAMPIONSHIP MATCH!"
 SAY "Which flavor is best?"
-winner = .FlavorTour~askForWinner(match_3)
+winner = .FlavorTourn~askForWinner(match_3)
 SAY
 SAY "And the Ultimate Flavor Champion is:"
 SAY winner~upper || "!!"
 
 /* Directives */
-::CLASS FlavorTour
+::CLASS FlavorTourn
+  ::METHOD pairUp
+
   ::METHOD askForWinner CLASS
     USE ARG flavors
 
@@ -34,3 +50,5 @@ SAY winner~upper || "!!"
         RETURN flavors[answer]
       ELSE SAY "Please answer '1' or '2'."
     END
+
+  ::METHOD playRound

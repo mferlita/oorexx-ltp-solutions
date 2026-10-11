@@ -56,8 +56,7 @@ SAY "And the Ultimate Flavor Champion is:"
 SAY winner~upper"!!"
 SAY
 
--- I had to puzzle this for a minute.
--- So, ooRexx doesn't do methods quite like Ruby.
+-- ooRexx doesn't do methods quite like Ruby.
 -- Where Ruby is more implicit, ooRexx is more explicit.
 -- Also, directives like ::CLASS and ::METHOD, go at the end of an ooRexx
 -- program.
