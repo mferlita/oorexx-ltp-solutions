@@ -4,6 +4,7 @@ start_year = .stdin~lineIn()
 SAY 'Please enter an ending year (the latest year in the range).'
 end_year = .stdin~lineIn()
 SAY 'The leap years are:'
+
 year = start_year
 
 DO WHILE year <= end_year
