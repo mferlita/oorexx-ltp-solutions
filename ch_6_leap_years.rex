@@ -1,8 +1,8 @@
 
 SAY 'Please enter a starting year (the earliest year in the range).'
-start_year = .stdin~lineIn() + 0
+start_year = .stdin~lineIn()
 SAY 'Please enter an ending year (the latest year in the range).'
-end_year = .stdin~lineIn() + 0
+end_year = .stdin~lineIn()
 SAY 'The leap years are:'
 year = start_year
 
