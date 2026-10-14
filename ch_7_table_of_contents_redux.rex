@@ -2,12 +2,6 @@
 title = "Table of Contents"
 line_width = 50
 
--- ooRexx offers a nice Array term syntax for writing arrays with.
--- For example,
--- foods = "apple", "cake", "lasagna"
--- is an array.
--- For neatly writing arrays, use the - character to continue onto the next
--- line.
 chapters = ("Numbers", 1), -
            ("Letters", 5), -
            ("Variables", 9)

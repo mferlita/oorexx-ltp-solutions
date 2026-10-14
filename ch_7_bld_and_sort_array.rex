@@ -1,5 +1,6 @@
 
 SAY "Give me some words and I'll sort them."
+
 words = .Array~new
 
 LOOP FOREVER
