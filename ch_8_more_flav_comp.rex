@@ -1,54 +1,52 @@
 #!/usr/bin/env rexx
 
-/*
-1. Put flavors into an array so you can add and subtract flavors easily and
-   dynamically create matches and rounds
-2. Slice the flavors up into matches (two flavors each match)
-3. prompt user which flavor they like better
-4. play a match and throw the result into an array for next round
-5. play the remaining matches/rounds until only one flavor is left
-6. announce winner
-*/
-
-flavors = "vanilla", -
-          "chocolate", -
-          "rhubarb", -
-          "pistachio", -
-          "moose tracks", -
-          "raspberry", -
-          "chocolate mint"
+-- note: match_A_B means "round A, match B"
+match_1_1 = "vanilla", "chocolate"
+match_1_2 = "rhubarb", "pistachio"
+match_1_3 = "spumoni", "green tea"
+match_1_4 = "cherry", "strawberry"
+match_2_1 = .Array~new -- this will hold the winners from 1_1 and 1_2
+match_2_2 = .Array~new -- this will hold the winners from 1_3 and 1_4
+match_3_1 = .Array~new -- this will hold the winners from 2_1 and 2_2
+winner = .nil -- this will hold the final winner
 
 SAY "Welcome to ULTIMATE FLAVOR TOURNAMENT!"
 SAY
-SAY "MATCH 1: Which flavor is best?"
-match_3[1] = .FlavorTourn~askForWinner(match_1)
+SAY "ROUND 1, MATCH 1: Which flavor is best?"
+match_2_1[1] = .FlavorTourn~ask_for_winner(match_1_1)
 SAY
-SAY "MATCH 2: Which flavor is best?"
-match_3[2] = .FlavorTourn~askForWinner(match_2)
+SAY "ROUND 1, MATCH 2: Which flavor is best?"
+match_2_1[2] = .FlavorTourn~ask_for_winner(match_1_2)
+SAY
+SAY "ROUND 1, MATCH 3: Which flavor is best?"
+match_2_2[1] = .FlavorTourn~ask_for_winner(match_1_3)
+SAY
+SAY "ROUND 1, MATCH 4: Which flavor is best?"
+match_2_2[2] = .FlavorTourn~ask_for_winner(match_1_4)
+SAY
+SAY "ROUND 2, MATCH 1: Which flavor is best?"
+match_3_1[1] = .FlavorTourn~ask_for_winner(match_2_1)
+SAY
+SAY "ROUND 2, MATCH 2: Which flavor is best?"
+match_3_1[2] = .FlavorTourn~ask_for_winner(match_2_2)
 SAY
 SAY "CHAMPIONSHIP MATCH!"
 SAY "Which flavor is best?"
-winner = .FlavorTourn~askForWinner(match_3)
+winner = .FlavorTourn~ask_for_winner(match_3_1)
 SAY
 SAY "And the Ultimate Flavor Champion is:"
 SAY winner~upper || "!!"
 
 /* Directives */
-::CLASS FlavorTourn
-  ::METHOD pairUp
+::CLASS FlavorTourn PUBLIC
+ ::METHOD ask_for_winner CLASS
+   USE ARG flavors
+     SAY "1. " || flavors[1]
+     SAY "2. " || flavors[2]
 
-  ::METHOD askForWinner CLASS
-    USE ARG flavors
-
-    SAY "1. " || flavors[1]
-    SAY "2. " || flavors[2]
-
-    LOOP FOREVER
-      answer = .stdin~lineIn()
-
-      IF (answer == "1" | answer == "2") THEN
-        RETURN flavors[answer]
-      ELSE SAY "Please answer '1' or '2'."
-    END
-
-  ::METHOD playRound
+   LOOP FOREVER
+     answer = .stdin~lineIn()~lower
+     IF answer == "1" | answer == "2" THEN
+       RETURN flavors[answer]
+     ELSE SAY "Please answer '1' or '2'."
+   END

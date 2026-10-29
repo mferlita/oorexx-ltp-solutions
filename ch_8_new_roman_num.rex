@@ -57,8 +57,8 @@ SAY .Roman~newNum(3999) -- MMMCMXCIX
     IF (num <= 0) | (num >= 4000) THEN
       RAISE SYNTAX 88.900 ARRAY ('Must use a positive integer less than 4,000')
 
-    -- make sure passed number is always 4 digits,
-    -- add zeroes to the beginning when necessary
+    -- make sure passed number is always 4 digits and add zeros to the beginning
+    -- when necessary
     digit4 = num~right(4,0)
 
     roman = "M"~copies(digit4~subChar(1))
